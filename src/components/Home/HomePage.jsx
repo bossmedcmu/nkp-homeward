@@ -14,7 +14,7 @@ export default function HomePage({
         <div className="row g-0 align-items-center">
           <div className="col-lg-6 p-4 p-md-5">
             <span className="badge text-bg-primary px-3 py-2 fs-6 mb-3 rounded-pill shadow-sm">
-              <i className="bi bi-hospital me-1"></i>งานการพยาบาลชุมชน โรงพยาบาลนครพนม
+              <i className="bi bi-hospital me-1"></i>งานการพยาบาลชุมชน โรงพยาบาลนครพิงค์
             </span>
             <h1 className="display-6 fw-bold text-primary mb-3">
               NKP Homeward <br />
@@ -68,7 +68,7 @@ export default function HomePage({
                 <i className="bi bi-heart-pulse-fill text-danger display-1 mb-3 animate-pulse"></i>
                 <h4 className="fw-bold text-primary mb-2">ทีมพยาบาลลงพื้นที่เยี่ยมบ้าน</h4>
                 <p className="text-muted small col-md-8 mx-auto mb-0">
-                  กำลังใจและการฟื้นฟูสุขภาพถึงบันไดบ้านชาวบ้านในชุมชนนครพนม
+                  กำลังใจและการฟื้นฟูสุขภาพถึงบันไดบ้านชาวบ้านในชุมชน
                 </p>
               </div>
             )}

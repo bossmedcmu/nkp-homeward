@@ -75,7 +75,7 @@ export default function Login({ onLoginSuccess }) {
         </div>
 
         <div className="card-footer bg-light text-center py-3 text-muted small">
-          โรงพยาบาลนครพนม - กลุ่มงานการพยาบาลชุมชน
+          โรงพยาบาลนครพิงค์ - กลุ่มงานการพยาบาลชุมชน
         </div>
       </div>
     </div>

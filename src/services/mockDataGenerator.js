@@ -154,7 +154,7 @@ export function generate50MockPatientsAndVisits() {
       moo: String((i % 12) + 1),
       subdistrict: SUBDISTRICTS[i % SUBDISTRICTS.length],
       district: 'เมือง',
-      province: 'นครพนม',
+      province: 'เชียงใหม่',
       regDate: admitDate,
       typeDx1,
       typeDx2,

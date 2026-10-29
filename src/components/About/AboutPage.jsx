@@ -202,7 +202,7 @@ export default function AboutPage() {
           </div>
           <div className="col-md-4 text-md-end mt-3 mt-md-0">
             <div className="badge text-bg-primary fs-6 px-3 py-2">
-              โรงพยาบาลนครพนม
+              โรงพยาบาลนครพิงค์
             </div>
             <div className="small text-muted mt-1">กลุ่มงานการพยาบาลชุมชน</div>
           </div>

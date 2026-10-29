@@ -20,7 +20,7 @@ export default function PatientFormModal({ show, onClose, onSave, patientToEdit 
     moo: '',
     subdistrict: '',
     district: 'เมือง',
-    province: 'นครพนม',
+    province: 'เชียงใหม่',
     regDate: new Date().toISOString().split('T')[0],
     typeDx1: 'IMC',
     typeDx2: 'Stroke',

@@ -260,7 +260,7 @@ export default function ReportDashboard({ patients, visits }) {
   // Export full table to CSV
   const handleExportCsv = () => {
     let csv = '\uFEFF' // UTF-8 BOM for Thai Excel
-    csv += 'รายงานผลการปฏิบัติงาน กลุ่มงานการพยาบาลชุมชน โรงพยาบาลนครพนม\n'
+    csv += 'รายงานผลการปฏิบัติงาน กลุ่มงานการพยาบาลชุมชน โรงพยาบาลนครพิงค์\n'
     csv += `ช่วงวันที่: ${startDate} ถึง ${endDate}\n\n`
     csv += 'ลำดับ,รายการ,กลุ่ม,คน (ราย),ครั้ง\n'
     csv += `1,จำนวนคนไข้ในงาน Home ward,-,${reportMetrics.activePatientsInRange},-\n`
@@ -405,7 +405,7 @@ export default function ReportDashboard({ patients, visits }) {
             <div className="d-flex justify-content-between align-items-center mb-3">
               <h5 className="fw-bold text-primary mb-0">
                 <i className="bi bi-clipboard-data me-1"></i>
-                ผลการปฏิบัติงาน กลุ่มงานการพยาบาลชุมชน โรงพยาบาลนครพนม
+                ผลการปฏิบัติงาน กลุ่มงานการพยาบาลชุมชน โรงพยาบาลนครพิงค์
               </h5>
               <span className="badge text-bg-light border text-muted">
                 ข้อมูลระหว่าง {startDate} ถึง {endDate}

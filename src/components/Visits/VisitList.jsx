@@ -216,7 +216,17 @@ export default function VisitList({
                 <tr>
                   <td colSpan="10" className="text-center py-5 text-muted">
                     <i className="bi bi-inbox fs-2 d-block mb-2"></i>
-                    ไม่พบบันทึกการเยี่ยมตามเงื่อนไข
+                    {visits.length === 0 ? (
+                      <div>
+                        <h6 className="fw-bold text-dark mb-1">ขณะนี้ยังไม่มีบันทึกการติดตามเยี่ยมในระบบ</h6>
+                        <p className="small text-muted mb-3">คุณสามารถกดบันทึกการเยี่ยมใหม่ หรือกดปุ่ม "เรียกใช้ข้อมูลตัวอย่าง" ที่แถบเมนูด้านบน</p>
+                        <button className="btn btn-primary btn-sm shadow-sm" onClick={onAddNewVisit}>
+                          <i className="bi bi-plus-circle-fill me-1"></i>บันทึกการเยี่ยมใหม่
+                        </button>
+                      </div>
+                    ) : (
+                      'ไม่พบบันทึกการเยี่ยมตามเงื่อนไขที่ค้นหา'
+                    )}
                   </td>
                 </tr>
               ) : (

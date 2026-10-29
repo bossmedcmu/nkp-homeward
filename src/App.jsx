@@ -137,23 +137,23 @@ export default function App() {
     setShowVisitModal(true)
   }
 
-  // Clear all data (Empty system mode)
+  // Clear all data completely (wipes all user-entered and sample data)
   const handleClearAllData = () => {
-    if (window.confirm('คุณต้องการลบข้อมูลทั้งหมดเพื่อทดสอบระบบเปล่าๆ ใช่หรือไม่?\n\n(ข้อมูลผู้ป่วยและบันทึกการเยี่ยมทั้งหมดจะถูกลบ คุณสามารถกด "คืนข้อมูลตัวอย่าง 50 ราย" ได้ทุกเมื่อ)')) {
+    if (window.confirm('คุณต้องการลบข้อมูลทั้งหมดในระบบใช่หรือไม่?\n\n(ข้อมูลผู้ป่วยและบันทึกการเยี่ยมทั้งหมด ทั้งที่กรอกเองและข้อมูลตัวอย่าง จะถูกล้างออกทั้งหมด)')) {
       const emptyStore = clearAllData()
       setPatients(emptyStore.patients)
       setVisits(emptyStore.visits)
-      alert('ลบข้อมูลทั้งหมดเรียบร้อยแล้ว ขณะนี้ระบบเป็นระบบเปล่าพร้อมให้ทดสอบลงทะเบียนใหม่')
+      alert('ลบข้อมูลทั้งหมดเรียบร้อยแล้ว ขณะนี้ระบบว่างเปล่าพร้อมให้ลงทะเบียนใหม่')
     }
   }
 
-  // Restore 50 Mock Data
-  const handleRestoreMockData = () => {
-    if (window.confirm('คุณต้องการคืนข้อมูลตัวอย่าง 50 รายการ พร้อมประวัติการเยี่ยมกลับคืนมาใช่หรือไม่?')) {
+  // Load sample data (50 mock patients and 70+ visits)
+  const handleLoadSampleData = () => {
+    if (window.confirm('คุณต้องการเรียกใช้ข้อมูลตัวอย่าง (ผู้ป่วยจำลอง 50 ราย พร้อมประวัติการเยี่ยม) ใช่หรือไม่?')) {
       const seeded = restoreMockData()
       setPatients(seeded.patients)
       setVisits(seeded.visits)
-      alert(`คืนข้อมูลตัวอย่างเรียบร้อย: ผู้ป่วย ${seeded.patients.length} รายการ และบันทึกการเยี่ยม ${seeded.visits.length} ครั้ง`)
+      alert(`โหลดข้อมูลตัวอย่างสำเร็จ: ผู้ป่วย ${seeded.patients.length} รายการ และบันทึกการเยี่ยม ${seeded.visits.length} ครั้ง`)
     }
   }
 
@@ -217,7 +217,7 @@ export default function App() {
         visitCount={visits.length}
         alertCount={alertCount}
         onClearAllData={handleClearAllData}
-        onRestoreMockData={handleRestoreMockData}
+        onLoadSampleData={handleLoadSampleData}
         onLogout={handleLogout}
       />
 
@@ -236,6 +236,7 @@ export default function App() {
               setVisitToEdit(null)
               setShowVisitModal(true)
             }}
+            onLoadSampleData={handleLoadSampleData}
             heroImageSrc={heroImage}
           />
         )}
@@ -255,7 +256,7 @@ export default function App() {
             onView={(patient) => setPatientToView(patient)}
             onExport={handleExportJson}
             onImport={handleImportJson}
-            onRestoreMockData={handleRestoreMockData}
+            onLoadSampleData={handleLoadSampleData}
           />
         )}
 

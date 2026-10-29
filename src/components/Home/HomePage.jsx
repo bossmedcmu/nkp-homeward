@@ -5,6 +5,7 @@ export default function HomePage({
   onNavigate,
   onAddNewPatient,
   onAddNewVisit,
+  onLoadSampleData,
   heroImageSrc
 }) {
   return (
@@ -39,6 +40,15 @@ export default function HomePage({
                 <i className="bi bi-plus-circle-fill"></i>
                 <span>บันทึกการเยี่ยม</span>
               </button>
+              {patientCount === 0 && onLoadSampleData && (
+                <button
+                  className="btn btn-warning px-3 py-2 d-inline-flex align-items-center gap-2 shadow-sm fw-semibold"
+                  onClick={onLoadSampleData}
+                >
+                  <i className="bi bi-arrow-counterclockwise"></i>
+                  <span>เรียกใช้ข้อมูลตัวอย่าง</span>
+                </button>
+              )}
               <button
                 className="btn btn-outline-primary px-3 py-2"
                 onClick={() => onNavigate('tracking')}
@@ -75,6 +85,45 @@ export default function HomePage({
           </div>
         </div>
       </div>
+
+      {/* Zero-Data Initial State Callout */}
+      {patientCount === 0 && (
+        <div className="alert alert-light border shadow-sm rounded-4 p-4 mb-4">
+          <div className="d-flex flex-wrap align-items-center justify-content-between gap-3">
+            <div className="d-flex align-items-start gap-3">
+              <div className="p-3 bg-primary-subtle text-primary rounded-circle">
+                <i className="bi bi-folder-plus fs-3"></i>
+              </div>
+              <div>
+                <h5 className="fw-bold text-dark mb-1">
+                  ยินดีต้อนรับสู่ NKP Homeward — ขณะนี้ระบบเป็นระบบเปล่า (ยังไม่มีข้อมูลผู้ป่วย)
+                </h5>
+                <p className="text-muted small mb-0">
+                  คุณสามารถเลือกเริ่มต้น <strong>บันทึกข้อมูลผู้ป่วยใหม่</strong> ด้วยตนเอง หรือคลิกปุ่ม <strong>"เรียกใช้ข้อมูลตัวอย่าง"</strong> เพื่อโหลดเคสจำลอง 50 รายการและประวัติเยี่ยมเพื่อทดลองใช้งานระบบได้ทันที
+                </p>
+              </div>
+            </div>
+            <div className="d-flex flex-wrap gap-2">
+              <button
+                className="btn btn-primary btn-sm px-3 py-2 shadow-sm d-flex align-items-center gap-1"
+                onClick={onAddNewPatient}
+              >
+                <i className="bi bi-person-plus-fill"></i>
+                <span>ลงทะเบียนผู้ป่วยใหม่</span>
+              </button>
+              {onLoadSampleData && (
+                <button
+                  className="btn btn-warning btn-sm fw-semibold px-3 py-2 shadow-sm d-flex align-items-center gap-1"
+                  onClick={onLoadSampleData}
+                >
+                  <i className="bi bi-arrow-counterclockwise"></i>
+                  <span>เรียกใช้ข้อมูลตัวอย่าง</span>
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Quick Overview Cards */}
       <div className="row g-3 mb-4">

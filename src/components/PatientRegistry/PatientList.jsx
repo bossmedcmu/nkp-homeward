@@ -9,8 +9,10 @@ export default function PatientList({
   onView,
   onExport,
   onImport,
+  onLoadSampleData,
   onRestoreMockData
 }) {
+  const handleLoadSample = onLoadSampleData || onRestoreMockData
   const [searchTerm, setSearchTerm] = useState('')
   const [filterDx1, setFilterDx1] = useState('ALL')
   const [filterColor, setFilterColor] = useState('ALL')
@@ -226,15 +228,15 @@ export default function PatientList({
                     <i className="bi bi-inbox fs-2 d-block mb-2"></i>
                     {patients.length === 0 ? (
                       <div>
-                        <h6 className="fw-bold text-dark mb-1">ขณะนี้ระบบยังไม่มีข้อมูลผู้ป่วย (ระบบเปล่า)</h6>
-                        <p className="small text-muted mb-3">คุณสามารถทดลองเริ่มต้นลงทะเบียนเคสใหม่ หรือกดปุ่มคืนข้อมูลตัวอย่างเพื่อทดสอบระบบได้ทันที</p>
+                        <h6 className="fw-bold text-dark mb-1">ขณะนี้ระบบยังไม่มีข้อมูลผู้ป่วย (ระบบเริ่มต้นว่างเปล่า)</h6>
+                        <p className="small text-muted mb-3">คุณสามารถเลือกเริ่มต้นลงทะเบียนเคสใหม่ หรือกดปุ่ม "เรียกใช้ข้อมูลตัวอย่าง" เพื่อทดลองใช้งานระบบได้ทันที</p>
                         <div className="d-flex justify-content-center gap-2">
                           <button className="btn btn-primary btn-sm shadow-sm" onClick={onAddNew}>
                             <i className="bi bi-person-plus-fill me-1"></i>ลงทะเบียนเคสใหม่
                           </button>
-                          {onRestoreMockData && (
-                            <button className="btn btn-warning btn-sm fw-semibold shadow-sm" onClick={onRestoreMockData}>
-                              <i className="bi bi-arrow-counterclockwise me-1"></i>คืนข้อมูลตัวอย่าง 50 ราย
+                          {handleLoadSample && (
+                            <button className="btn btn-warning btn-sm fw-semibold shadow-sm" onClick={handleLoadSample}>
+                              <i className="bi bi-arrow-counterclockwise me-1"></i>เรียกใช้ข้อมูลตัวอย่าง
                             </button>
                           )}
                         </div>

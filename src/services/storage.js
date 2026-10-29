@@ -63,51 +63,53 @@ export function calculateColorByAdl(adl) {
   return 'แดง'
 }
 
-// Initialize or get store. If first time on this device, seeds 50 mock patients & visits.
+// Initial state: starts with EMPTY data [] by default.
+// The user can choose to register new patients or click "เรียกใช้ข้อมูลตัวอย่าง".
 export function initOrGetStore() {
   try {
-    const initialized = localStorage.getItem('nkp_homeward_initialized')
+    const resetDone = localStorage.getItem('nkp_homeward_empty_init_v2')
+    if (!resetDone) {
+      localStorage.removeItem(STORAGE_KEYS.PATIENTS)
+      localStorage.removeItem(STORAGE_KEYS.VISITS)
+      localStorage.setItem('nkp_homeward_empty_init_v2', 'true')
+      return { patients: [], visits: [] }
+    }
+
     const rawP = localStorage.getItem(STORAGE_KEYS.PATIENTS)
     const rawV = localStorage.getItem(STORAGE_KEYS.VISITS)
-
-    // First time on device: auto seed with demo data
-    if (!initialized) {
-      const seeded = generate50MockPatientsAndVisits()
-      localStorage.setItem('nkp_homeward_initialized', 'true')
-      localStorage.setItem(STORAGE_KEYS.PATIENTS, JSON.stringify(seeded.patients))
-      localStorage.setItem(STORAGE_KEYS.VISITS, JSON.stringify(seeded.visits))
-      return seeded
-    }
 
     const parsedP = rawP ? JSON.parse(rawP) : []
     const parsedV = rawV ? JSON.parse(rawV) : []
     return { patients: parsedP, visits: parsedV }
   } catch (e) {
-    console.error('Storage init failed, using freshly generated data', e)
-    const seeded = generate50MockPatientsAndVisits()
-    return seeded
+    console.error('Storage init failed', e)
+    return { patients: [], visits: [] }
   }
 }
 
-// Clear all data to let user test empty system
+// Clear all data completely (wipes all user-entered and sample data)
 export function clearAllData() {
-  localStorage.setItem('nkp_homeward_initialized', 'true')
+  localStorage.setItem('nkp_homeward_empty_init_v2', 'true')
   localStorage.setItem(STORAGE_KEYS.PATIENTS, JSON.stringify([]))
   localStorage.setItem(STORAGE_KEYS.VISITS, JSON.stringify([]))
   return { patients: [], visits: [] }
 }
 
-// Restore or reset to full 50 mock patients and visits
-export function restoreMockData() {
+// Load sample data (50 mock patients and 70+ visits)
+export function loadSampleData() {
   const seeded = generate50MockPatientsAndVisits()
-  localStorage.setItem('nkp_homeward_initialized', 'true')
+  localStorage.setItem('nkp_homeward_empty_init_v2', 'true')
   localStorage.setItem(STORAGE_KEYS.PATIENTS, JSON.stringify(seeded.patients))
   localStorage.setItem(STORAGE_KEYS.VISITS, JSON.stringify(seeded.visits))
   return seeded
 }
 
+export function restoreMockData() {
+  return loadSampleData()
+}
+
 export function resetTo50MockData() {
-  return restoreMockData()
+  return loadSampleData()
 }
 
 export function getPatients() {

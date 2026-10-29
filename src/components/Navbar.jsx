@@ -4,10 +4,12 @@ export default function Navbar({
   patientCount,
   visitCount,
   alertCount,
+  onLoadSampleData,
   onRestoreMockData,
   onClearAllData,
   onLogout
 }) {
+  const handleLoadSample = onLoadSampleData || onRestoreMockData
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm mb-4">
       <div className="container-fluid">
@@ -88,20 +90,20 @@ export default function Navbar({
             <button
               className="btn btn-outline-light btn-sm d-flex align-items-center gap-1 shadow-sm"
               onClick={onClearAllData}
-              title="ลบข้อมูลทั้งหมดเพื่อทดสอบระบบเปล่าๆ"
+              title="ลบข้อมูลทั้งหมดในระบบ (ล้างทั้งข้อมูลที่กรอกและข้อมูลตัวอย่าง)"
             >
               <i className="bi bi-trash3 text-warning"></i>
               <span className="d-none d-xl-inline">ลบข้อมูลทั้งหมด</span>
             </button>
 
-            {/* Restore Mock Data Button */}
+            {/* Load Sample Data Button */}
             <button
               className="btn btn-warning btn-sm fw-semibold d-flex align-items-center gap-1 shadow-sm"
-              onClick={onRestoreMockData}
-              title="โหลดชุดข้อมูลตัวอย่าง 50 คน พร้อมประวัติเยี่ยมกลับคืนมา"
+              onClick={handleLoadSample}
+              title="เรียกใช้ข้อมูลตัวอย่าง 50 ราย พร้อมประวัติเยี่ยมเพื่อทดสอบระบบ"
             >
               <i className="bi bi-arrow-counterclockwise"></i>
-              <span className="d-none d-md-inline">คืนข้อมูลตัวอย่าง 50 ราย</span>
+              <span className="d-none d-md-inline">เรียกใช้ข้อมูลตัวอย่าง</span>
             </button>
 
             {/* Logout Button */}

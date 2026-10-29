@@ -1,0 +1,241 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#70c4ff" />
+      <stop offset="60%" stop-color="#b8e5ff" />
+      <stop offset="100%" stop-color="#eaf7ff" />
+    </linearGradient>
+    <linearGradient id="hillGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#80d473" />
+      <stop offset="100%" stop-color="#4caf50" />
+    </linearGradient>
+    <linearGradient id="hillGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a5e386" />
+      <stop offset="100%" stop-color="#66bb6a" />
+    </linearGradient>
+    <linearGradient id="sunGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffeb3b" />
+      <stop offset="100%" stop-color="#ff9800" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Sky Background -->
+  <rect width="800" height="480" fill="url(#skyGrad)" />
+
+  <!-- Sun -->
+  <circle cx="120" cy="90" r="50" fill="url(#sunGrad)" opacity="0.9" />
+  <circle cx="120" cy="90" r="65" fill="#fff" opacity="0.15" />
+
+  <!-- Clouds -->
+  <g fill="#ffffff" opacity="0.85">
+    <!-- Cloud 1 -->
+    <ellipse cx="260" cy="80" rx="45" ry="22" />
+    <ellipse cx="290" cy="70" rx="35" ry="25" />
+    <ellipse cx="320" cy="80" rx="35" ry="20" />
+    <!-- Cloud 2 -->
+    <ellipse cx="640" cy="110" rx="55" ry="25" />
+    <ellipse cx="680" cy="100" rx="45" ry="28" />
+    <ellipse cx="600" cy="115" rx="35" ry="20" />
+  </g>
+
+  <!-- Background Hills -->
+  <path d="M-50,320 Q180,180 400,280 T850,260 L850,480 L-50,480 Z" fill="url(#hillGrad2)" opacity="0.7" />
+  <path d="M-50,350 Q220,240 520,330 T850,310 L850,480 L-50,480 Z" fill="url(#hillGrad1)" />
+
+  <!-- Thai Village House (Background Right) -->
+  <g transform="translate(480, 180)" filter="url(#shadow)">
+    <!-- Stilts and Base -->
+    <rect x="40" y="140" width="16" height="60" fill="#795548" />
+    <rect x="180" y="140" width="16" height="60" fill="#795548" />
+    <rect x="110" y="140" width="16" height="60" fill="#5d4037" />
+    
+    <!-- House Body -->
+    <rect x="30" y="60" width="180" height="90" fill="#d7ccc8" rx="4" />
+    <rect x="45" y="75" width="40" height="45" fill="#81d4fa" rx="2" stroke="#5d4037" stroke-width="4" />
+    <line x1="65" y1="75" x2="65" y2="120" stroke="#5d4037" stroke-width="2" />
+    <rect x="140" y="75" width="45" height="75" fill="#a1887f" stroke="#5d4037" stroke-width="3" />
+    <circle cx="175" cy="115" r="4" fill="#ffb300" />
+
+    <!-- Traditional Roof -->
+    <polygon points="120,5 5,65 235,65" fill="#e65100" />
+    <polygon points="120,0 20,60 220,60" fill="#ff7043" />
+    <!-- Veranda / Terrace -->
+    <rect x="15" y="130" width="210" height="15" fill="#8d6e63" rx="2" />
+    <rect x="25" y="115" width="70" height="18" fill="#a5d6a7" rx="3" />
+    <!-- Plants on Veranda -->
+    <circle cx="40" cy="112" r="10" fill="#388e3c" />
+    <circle cx="60" cy="110" r="12" fill="#4caf50" />
+    <circle cx="80" cy="113" r="9" fill="#2e7d32" />
+  </g>
+
+  <!-- Trees / Coconut Palms -->
+  <g transform="translate(680, 120)">
+    <!-- Tree Trunk -->
+    <path d="M40,240 Q60,140 30,50" stroke="#6d4c41" stroke-width="18" fill="none" stroke-linecap="round" />
+    <!-- Palm Leaves -->
+    <path d="M30,50 Q-40,10 -80,40" stroke="#2e7d32" stroke-width="12" fill="none" stroke-linecap="round" />
+    <path d="M30,50 Q-20,-30 -40,-60" stroke="#388e3c" stroke-width="12" fill="none" stroke-linecap="round" />
+    <path d="M30,50 Q60,-40 100,-20" stroke="#43a047" stroke-width="12" fill="none" stroke-linecap="round" />
+    <path d="M30,50 Q90,30 110,70" stroke="#2e7d32" stroke-width="12" fill="none" stroke-linecap="round" />
+    <path d="M30,50 Q0,80 -30,110" stroke="#4caf50" stroke-width="10" fill="none" stroke-linecap="round" />
+  </g>
+
+  <!-- Garden & Flowers Front Ground -->
+  <path d="M-20,380 Q300,320 820,360 L820,480 L-20,480 Z" fill="#81c784" />
+  <ellipse cx="720" cy="420" rx="40" ry="15" fill="#66bb6a" />
+  <circle cx="710" cy="415" r="8" fill="#e91e63" />
+  <circle cx="730" cy="418" r="7" fill="#ffeb3b" />
+  <circle cx="695" cy="422" r="6" fill="#ff9800" />
+
+  <!-- PATIENT: Smiling Thai Grandma on comfortable armchair -->
+  <g transform="translate(430, 240)" filter="url(#shadow)">
+    <!-- Armchair -->
+    <rect x="20" y="80" width="100" height="90" rx="16" fill="#5c6bc0" />
+    <rect x="10" y="100" width="20" height="60" rx="8" fill="#3f51b5" />
+    <rect x="110" y="100" width="20" height="60" rx="8" fill="#3f51b5" />
+    <rect x="30" y="160" width="12" height="30" fill="#303f9f" />
+    <rect x="98" y="160" width="12" height="30" fill="#303f9f" />
+
+    <!-- Grandma Body (Traditional Thai blouse with sarong) -->
+    <path d="M45,85 Q70,75 95,85 L100,150 L40,150 Z" fill="#f48fb1" />
+    <!-- Sarong (ผ้าถุง) -->
+    <path d="M40,140 L100,140 L95,180 L45,180 Z" fill="#880e4f" />
+    <!-- Thai Shawl (สไบ/ผ้าพาดไหล่) -->
+    <path d="M50,85 Q70,110 85,150" stroke="#c2185b" stroke-width="12" fill="none" stroke-linecap="round" />
+
+    <!-- Grandma Head & Hair -->
+    <!-- Gray Hair Bun -->
+    <circle cx="70" cy="45" r="26" fill="#cfd8dc" />
+    <circle cx="70" cy="22" r="14" fill="#b0bec5" />
+    <!-- Face -->
+    <ellipse cx="70" cy="52" rx="20" ry="22" fill="#ffccbc" />
+    <!-- Warm smile and eyes -->
+    <path d="M60,48 Q64,44 68,48" stroke="#5d4037" stroke-width="2.5" fill="none" stroke-linecap="round" />
+    <path d="M74,48 Q78,44 82,48" stroke="#5d4037" stroke-width="2.5" fill="none" stroke-linecap="round" />
+    <!-- Warm smile -->
+    <path d="M63,60 Q71,69 79,60" stroke="#d84315" stroke-width="3" fill="none" stroke-linecap="round" />
+    <!-- Rosy cheeks -->
+    <circle cx="58" cy="58" r="4" fill="#ffab91" opacity="0.6" />
+    <circle cx="82" cy="58" r="4" fill="#ffab91" opacity="0.6" />
+    <!-- Hands in Wai / Greeting position -->
+    <path d="M62,105 Q70,95 78,105 L76,120 L64,120 Z" fill="#ffccbc" />
+  </g>
+
+  <!-- HOME-WARD NURSING TEAM (Left and Center) -->
+
+  <!-- NURSE 1: Main Smiling Female Community Nurse (Holding clipboard and medical kit) -->
+  <g transform="translate(230, 170)" filter="url(#shadow)">
+    <!-- Legs / Pants -->
+    <rect x="42" y="195" width="18" height="90" fill="#283593" rx="6" />
+    <rect x="68" y="195" width="18" height="90" fill="#283593" rx="6" />
+    <!-- White Medical Shoes -->
+    <ellipse cx="50" cy="285" rx="14" ry="7" fill="#ffffff" stroke="#cfd8dc" stroke-width="2" />
+    <ellipse cx="78" cy="285" rx="14" ry="7" fill="#ffffff" stroke="#cfd8dc" stroke-width="2" />
+
+    <!-- Uniform Body (Light Blue Public Health Nurse Scrub) -->
+    <path d="M30,85 Q64,75 98,85 L92,205 L36,205 Z" fill="#0288d1" rx="6" />
+    <!-- Scrub Collar / V-neck -->
+    <polygon points="64,115 50,85 78,85" fill="#b3e5fc" />
+    <!-- Medical Cross Badge on Pocket -->
+    <rect x="74" y="125" width="18" height="18" fill="#ffffff" rx="3" />
+    <path d="M83,128 L83,140 M77,134 L89,134" stroke="#e53935" stroke-width="3" stroke-linecap="round" />
+
+    <!-- Stethoscope around neck -->
+    <path d="M48,88 Q64,145 80,88" stroke="#37474f" stroke-width="4.5" fill="none" stroke-linecap="round" />
+    <circle cx="64" cy="138" r="7" fill="#cfd8dc" stroke="#37474f" stroke-width="2" />
+
+    <!-- Left Arm & Medical Kit -->
+    <path d="M35,95 Q15,140 25,170" stroke="#0288d1" stroke-width="16" fill="none" stroke-linecap="round" />
+    <circle cx="24" cy="175" r="10" fill="#ffccbc" />
+    <!-- Medical Bag -->
+    <rect x="5" y="175" width="38" height="30" rx="5" fill="#d32f2f" />
+    <rect x="17" y="167" width="14" height="10" rx="3" fill="#b71c1c" />
+    <!-- Cross on Bag -->
+    <path d="M24,183 L24,197 M17,190 L31,190" stroke="#ffffff" stroke-width="4" stroke-linecap="round" />
+
+    <!-- Right Arm holding Clipboard -->
+    <path d="M92,95 Q115,135 105,160" stroke="#0288d1" stroke-width="16" fill="none" stroke-linecap="round" />
+    <circle cx="105" cy="165" r="10" fill="#ffccbc" />
+    <!-- Medical Clipboard / Care Chart -->
+    <rect x="98" y="135" width="28" height="40" rx="3" fill="#8d6e63" transform="rotate(-10 98 135)" />
+    <rect x="101" y="140" width="22" height="30" rx="2" fill="#ffffff" transform="rotate(-10 98 135)" />
+    <!-- Chart lines -->
+    <line x1="105" y1="148" x2="119" y2="146" stroke="#0288d1" stroke-width="2" />
+    <line x1="106" y1="154" x2="120" y2="152" stroke="#546e7a" stroke-width="1.5" />
+    <line x1="107" y1="160" x2="118" y2="158" stroke="#4caf50" stroke-width="1.5" />
+
+    <!-- Head & Hair -->
+    <!-- Black Ponytail Hair -->
+    <circle cx="64" cy="45" r="28" fill="#212121" />
+    <path d="M40,55 Q30,85 25,105" stroke="#212121" stroke-width="14" fill="none" stroke-linecap="round" />
+    <!-- Head -->
+    <ellipse cx="64" cy="50" rx="21" ry="23" fill="#ffccbc" />
+    <!-- Nurse Cap -->
+    <path d="M46,30 L82,30 L78,16 L50,16 Z" fill="#ffffff" stroke="#cfd8dc" stroke-width="1.5" />
+    <rect x="58" y="20" width="12" height="3" fill="#0288d1" />
+
+    <!-- Smiling Eyes and Face -->
+    <circle cx="56" cy="48" r="3" fill="#212121" />
+    <circle cx="72" cy="48" r="3" fill="#212121" />
+    <path d="M57,58 Q64,68 71,58" stroke="#d84315" stroke-width="3" fill="none" stroke-linecap="round" />
+    <!-- Cute Blush -->
+    <circle cx="50" cy="56" r="4.5" fill="#ff8a80" opacity="0.6" />
+    <circle cx="78" cy="56" r="4.5" fill="#ff8a80" opacity="0.6" />
+  </g>
+
+  <!-- NURSE 2: Friendly Male Public Health Officer / Physical Therapist -->
+  <g transform="translate(110, 190)" filter="url(#shadow)">
+    <!-- Legs -->
+    <rect x="38" y="180" width="18" height="90" fill="#37474f" rx="6" />
+    <rect x="64" y="180" width="18" height="90" fill="#37474f" rx="6" />
+    <!-- Shoes -->
+    <ellipse cx="46" cy="270" rx="14" ry="7" fill="#455a64" />
+    <ellipse cx="74" cy="270" rx="14" ry="7" fill="#455a64" />
+
+    <!-- Polo Shirt (Mint Green Health Staff) -->
+    <path d="M25,85 Q60,75 95,85 L88,190 L32,190 Z" fill="#26a69a" rx="6" />
+    <polygon points="60,110 50,85 70,85" fill="#80cbc4" />
+
+    <!-- ID Badge / Lanyard -->
+    <path d="M50,85 Q60,120 70,85" stroke="#004d40" stroke-width="2" fill="none" />
+    <rect x="54" y="120" width="12" height="16" fill="#ffffff" rx="2" stroke="#004d40" stroke-width="1" />
+    <rect x="56" y="123" width="8" height="5" fill="#ff9800" />
+
+    <!-- Arm Waving Warmly -->
+    <path d="M30,95 Q10,125 15,155" stroke="#26a69a" stroke-width="15" fill="none" stroke-linecap="round" />
+    <circle cx="16" cy="160" r="9" fill="#ffccbc" />
+    
+    <!-- Right Arm friendly wave towards grandma -->
+    <path d="M88,95 Q115,100 120,70" stroke="#26a69a" stroke-width="15" fill="none" stroke-linecap="round" />
+    <circle cx="120" cy="65" r="9" fill="#ffccbc" />
+
+    <!-- Head & Hair -->
+    <circle cx="60" cy="45" r="26" fill="#3e2723" />
+    <ellipse cx="60" cy="50" rx="20" ry="22" fill="#ffccbc" />
+    <!-- Short Hair Cut -->
+    <path d="M40,45 Q60,20 80,45 Z" fill="#3e2723" />
+
+    <!-- Cheerful Eyes and Big Smile -->
+    <circle cx="53" cy="48" r="3" fill="#212121" />
+    <circle cx="69" cy="48" r="3" fill="#212121" />
+    <path d="M54,58 Q61,68 68,58" stroke="#d84315" stroke-width="3" fill="none" stroke-linecap="round" />
+    <circle cx="48" cy="55" r="4" fill="#ffab91" opacity="0.6" />
+    <circle cx="74" cy="55" r="4" fill="#ffab91" opacity="0.6" />
+  </g>
+
+  <!-- Floating Hearts representing care and happiness -->
+  <g fill="#e91e63" opacity="0.85">
+    <path d="M370,190 C370,180 355,180 355,192 C355,205 370,215 370,215 C370,215 385,205 385,192 C385,180 370,180 370,190 Z" />
+    <path d="M410,160 C410,152 398,152 398,162 C398,172 410,180 410,180 C410,180 422,172 422,162 C422,152 410,152 410,160 Z" />
+    <path d="M340,150 C340,144 330,144 330,152 C330,160 340,166 340,166 C340,166 350,160 350,152 C350,144 340,144 340,150 Z" />
+  </g>
+
+  <!-- Banner text overlay at bottom -->
+  <rect x="0" y="435" width="800" height="45" fill="#0d47a1" opacity="0.85" />
+  <text x="400" y="464" fill="#ffffff" font-family="'Sarabun', 'Prompt', sans-serif" font-size="18" font-weight="bold" text-anchor="middle">
+    NKP Homeward: สุขภาพดีถึงบันไดบ้าน ด้วยหัวใจการพยาบาลชุมชน
+  </text>
+</svg>

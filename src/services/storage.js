@@ -63,21 +63,24 @@ export function calculateColorByAdl(adl) {
   return 'แดง'
 }
 
-// Ensure 50 mock patients & visits are seeded if empty or less than 10
+// Initialize or get store. If first time on this device, seeds 50 mock patients & visits.
 export function initOrGetStore() {
   try {
+    const initialized = localStorage.getItem('nkp_homeward_initialized')
     const rawP = localStorage.getItem(STORAGE_KEYS.PATIENTS)
     const rawV = localStorage.getItem(STORAGE_KEYS.VISITS)
-    const parsedP = rawP ? JSON.parse(rawP) : []
-    const parsedV = rawV ? JSON.parse(rawV) : []
 
-    if (parsedP.length < 10) {
+    // First time on device: auto seed with demo data
+    if (!initialized) {
       const seeded = generate50MockPatientsAndVisits()
+      localStorage.setItem('nkp_homeward_initialized', 'true')
       localStorage.setItem(STORAGE_KEYS.PATIENTS, JSON.stringify(seeded.patients))
       localStorage.setItem(STORAGE_KEYS.VISITS, JSON.stringify(seeded.visits))
       return seeded
     }
 
+    const parsedP = rawP ? JSON.parse(rawP) : []
+    const parsedV = rawV ? JSON.parse(rawV) : []
     return { patients: parsedP, visits: parsedV }
   } catch (e) {
     console.error('Storage init failed, using freshly generated data', e)
@@ -86,11 +89,25 @@ export function initOrGetStore() {
   }
 }
 
-export function resetTo50MockData() {
+// Clear all data to let user test empty system
+export function clearAllData() {
+  localStorage.setItem('nkp_homeward_initialized', 'true')
+  localStorage.setItem(STORAGE_KEYS.PATIENTS, JSON.stringify([]))
+  localStorage.setItem(STORAGE_KEYS.VISITS, JSON.stringify([]))
+  return { patients: [], visits: [] }
+}
+
+// Restore or reset to full 50 mock patients and visits
+export function restoreMockData() {
   const seeded = generate50MockPatientsAndVisits()
+  localStorage.setItem('nkp_homeward_initialized', 'true')
   localStorage.setItem(STORAGE_KEYS.PATIENTS, JSON.stringify(seeded.patients))
   localStorage.setItem(STORAGE_KEYS.VISITS, JSON.stringify(seeded.visits))
   return seeded
+}
+
+export function resetTo50MockData() {
+  return restoreMockData()
 }
 
 export function getPatients() {

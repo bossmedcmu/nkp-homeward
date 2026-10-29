@@ -8,7 +8,8 @@ export default function PatientList({
   onDelete,
   onView,
   onExport,
-  onImport
+  onImport,
+  onRestoreMockData
 }) {
   const [searchTerm, setSearchTerm] = useState('')
   const [filterDx1, setFilterDx1] = useState('ALL')
@@ -223,7 +224,24 @@ export default function PatientList({
                 <tr>
                   <td colSpan="9" className="text-center py-5 text-muted">
                     <i className="bi bi-inbox fs-2 d-block mb-2"></i>
-                    ไม่พบข้อมูลผู้ป่วยตามเงื่อนไขที่ค้นหา
+                    {patients.length === 0 ? (
+                      <div>
+                        <h6 className="fw-bold text-dark mb-1">ขณะนี้ระบบยังไม่มีข้อมูลผู้ป่วย (ระบบเปล่า)</h6>
+                        <p className="small text-muted mb-3">คุณสามารถทดลองเริ่มต้นลงทะเบียนเคสใหม่ หรือกดปุ่มคืนข้อมูลตัวอย่างเพื่อทดสอบระบบได้ทันที</p>
+                        <div className="d-flex justify-content-center gap-2">
+                          <button className="btn btn-primary btn-sm shadow-sm" onClick={onAddNew}>
+                            <i className="bi bi-person-plus-fill me-1"></i>ลงทะเบียนเคสใหม่
+                          </button>
+                          {onRestoreMockData && (
+                            <button className="btn btn-warning btn-sm fw-semibold shadow-sm" onClick={onRestoreMockData}>
+                              <i className="bi bi-arrow-counterclockwise me-1"></i>คืนข้อมูลตัวอย่าง 50 ราย
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    ) : (
+                      'ไม่พบข้อมูลผู้ป่วยตามเงื่อนไขที่ค้นหา'
+                    )}
                   </td>
                 </tr>
               ) : (

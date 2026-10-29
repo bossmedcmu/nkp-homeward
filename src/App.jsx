@@ -15,7 +15,8 @@ import {
   initOrGetStore,
   savePatients,
   saveVisits,
-  resetTo50MockData
+  clearAllData,
+  restoreMockData
 } from './services/storage'
 
 export default function App() {
@@ -136,13 +137,23 @@ export default function App() {
     setShowVisitModal(true)
   }
 
-  // Reset to 50 Mock Data
-  const handleResetMockData = () => {
-    if (window.confirm('ต้องการรีเซ็ตข้อมูลเป็นข้อมูลจำลอง 50 ราย พร้อมบันทึกการเยี่ยมและเคสติดตามครบทุกเมนูใช่หรือไม่?')) {
-      const seeded = resetTo50MockData()
+  // Clear all data (Empty system mode)
+  const handleClearAllData = () => {
+    if (window.confirm('คุณต้องการลบข้อมูลทั้งหมดเพื่อทดสอบระบบเปล่าๆ ใช่หรือไม่?\n\n(ข้อมูลผู้ป่วยและบันทึกการเยี่ยมทั้งหมดจะถูกลบ คุณสามารถกด "คืนข้อมูลตัวอย่าง 50 ราย" ได้ทุกเมื่อ)')) {
+      const emptyStore = clearAllData()
+      setPatients(emptyStore.patients)
+      setVisits(emptyStore.visits)
+      alert('ลบข้อมูลทั้งหมดเรียบร้อยแล้ว ขณะนี้ระบบเป็นระบบเปล่าพร้อมให้ทดสอบลงทะเบียนใหม่')
+    }
+  }
+
+  // Restore 50 Mock Data
+  const handleRestoreMockData = () => {
+    if (window.confirm('คุณต้องการคืนข้อมูลตัวอย่าง 50 รายการ พร้อมประวัติการเยี่ยมกลับคืนมาใช่หรือไม่?')) {
+      const seeded = restoreMockData()
       setPatients(seeded.patients)
       setVisits(seeded.visits)
-      alert(`รีเซ็ตข้อมูลจำลองเรียบร้อย: ผู้ป่วย ${seeded.patients.length} ราย, บันทึกเยี่ยม ${seeded.visits.length} รายการ`)
+      alert(`คืนข้อมูลตัวอย่างเรียบร้อย: ผู้ป่วย ${seeded.patients.length} รายการ และบันทึกการเยี่ยม ${seeded.visits.length} ครั้ง`)
     }
   }
 
@@ -205,7 +216,8 @@ export default function App() {
         patientCount={patients.length}
         visitCount={visits.length}
         alertCount={alertCount}
-        onResetMockData={handleResetMockData}
+        onClearAllData={handleClearAllData}
+        onRestoreMockData={handleRestoreMockData}
         onLogout={handleLogout}
       />
 
@@ -243,6 +255,7 @@ export default function App() {
             onView={(patient) => setPatientToView(patient)}
             onExport={handleExportJson}
             onImport={handleImportJson}
+            onRestoreMockData={handleRestoreMockData}
           />
         )}
 

@@ -4,7 +4,8 @@ export default function Navbar({
   patientCount,
   visitCount,
   alertCount,
-  onResetMockData,
+  onRestoreMockData,
+  onClearAllData,
   onLogout
 }) {
   return (
@@ -83,13 +84,24 @@ export default function Navbar({
           </ul>
 
           <div className="d-flex align-items-center gap-2">
+            {/* Clear All Data Button */}
+            <button
+              className="btn btn-outline-light btn-sm d-flex align-items-center gap-1 shadow-sm"
+              onClick={onClearAllData}
+              title="ลบข้อมูลทั้งหมดเพื่อทดสอบระบบเปล่าๆ"
+            >
+              <i className="bi bi-trash3 text-warning"></i>
+              <span className="d-none d-xl-inline">ลบข้อมูลทั้งหมด</span>
+            </button>
+
+            {/* Restore Mock Data Button */}
             <button
               className="btn btn-warning btn-sm fw-semibold d-flex align-items-center gap-1 shadow-sm"
-              onClick={onResetMockData}
-              title="สร้างข้อมูลจำลองผู้ป่วย 50 คน พร้อมบันทึกเยี่ยมครบทุกเมนู"
+              onClick={onRestoreMockData}
+              title="โหลดชุดข้อมูลตัวอย่าง 50 คน พร้อมประวัติเยี่ยมกลับคืนมา"
             >
-              <i className="bi bi-arrow-repeat"></i>
-              <span className="d-none d-md-inline">รีเซ็ตข้อมูลจำลอง 50 ราย</span>
+              <i className="bi bi-arrow-counterclockwise"></i>
+              <span className="d-none d-md-inline">คืนข้อมูลตัวอย่าง 50 ราย</span>
             </button>
 
             {/* Logout Button */}
